@@ -17,4 +17,20 @@ code {
     monospace;
 }
 
+.dark-text{
+    color: var(--dark-green);
+}
+
+.dark-bg{
+  background-color: var(--dark-green);
+}
+
+.light-text{
+  color: var(--basic-green);
+}
+
+.light-bg{
+  background-color: var(--basic-green);
+}
+
 

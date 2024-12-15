@@ -1,0 +1,53 @@
+.homepage{
+    width: 100%;
+    min-height: 100vh;
+}
+
+.topContainer{
+    margin-top: 120px;
+}
+
+.welcomeDialogue{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.rightCircle img{
+    object-fit: contain;
+}
+
+
+/* --------------------------------------------------features------------------------------------------------------------------------ */
+
+
+.featuretitle p{
+    font-size: 35px;
+    font-weight: bold;
+}
+.featuresList ul{
+    list-style: disc;
+}
+.workBox2{
+    height: 400px;
+}
+
+
+@media screen and (max-width:768px) {
+ 
+    .welcomeDialogue{
+        font-size: 35px;
+        margin-left: 0;
+        width: 100%;
+    }
+    .details{
+        width: 100%;
+    }
+
+    .features{
+        margin-top: 250px !important;
+    }
+    .featuresList ul{
+        list-style: none;
+        padding-left: 0;
+    }
+}

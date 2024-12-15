@@ -1,0 +1,52 @@
+.header-outer-container{
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.header{
+    background-color: transparent;
+    z-index: 1;
+}
+
+.center-container{
+    width: 1519px;
+    margin: auto;
+}
+.lowerNav a{
+    text-transform: uppercase;
+}
+
+.lowerNav a:hover{
+    color: white;
+}
+
+.logoImage{
+    height: 60px;
+}
+
+.homepage_mobileMenu{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    left: 0;
+}
+
+.mobileLogo{
+    height: 35px;
+}
+
+.menuLogo{
+    width: 35px;
+    z-index: 4;
+}
+
+.mobileMenuItems{
+ position: absolute;   
+ top: 0;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ background-color: rgba(0, 0, 0, 0.618);
+ z-index: 3;
+}
