@@ -6,7 +6,7 @@ import fb from '../assets/images/fb.png'
 import insta from '../assets/images/insta.png'
 import linkedin from '../assets/images/linkedin.png'
 import github from '../assets/images/github.png'
-import mobileMenu from "../assets/images/mobileMenu.png"
+import mobileMenu from "../assets/images/menu.png"
 
 export const images = {
 vector1:vector1,

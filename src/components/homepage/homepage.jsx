@@ -18,7 +18,7 @@ function Homepage() {
             Empowering farmers, enhancing productivity, and fostering sustainability—our platform connects you to the most impactful agricultural schemes. Explore resources that simplify farming, improve yields, and secure your livelihood.
             </p>
 
-           <p className="text-center"> <a href="" className="nav-link btn btn-success mx-3 py-2 px-5 d-inline-block">Get Started</a></p>
+           <p className="text-center startBtn rounded-2 light-bg"> <a href="" className="nav-link btn btn-success py-2 px-5">Get Started</a></p>
           </div>
          
         </div>
@@ -49,7 +49,7 @@ function Homepage() {
           </div>
         </div>
       </div>
-      <div className="features d-flex flex-column-reverse flex-md-row gap-5 my-5 container" id="features">
+      <div className="features d-flex flex-column-reverse flex-md-row gap-5 gap-md-3 my-5 container" id="features">
         <div className="featureBox1 col-md-5 p-4">
           <div className="featuretitle text-md-center text-start p-4">
             <p>Features</p>

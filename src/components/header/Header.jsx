@@ -36,7 +36,7 @@ function Header() {
         <div className="container d-flex justify-content-center gap-5 p-2 align-items-center lowerNav light-bg">
             
                 <a href="" className='nav-link'>Notice</a>
-                <a href="" className='nav-link'>Login/Register</a>
+                <Link to='login' className='nav-link'>Login/Register</Link>
                 <a href="" className='nav-link'>Schemes</a>
                 <a href="" className='nav-link'>Crops</a>
                 <a href="" className='nav-link'>Act & Rules</a>

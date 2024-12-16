@@ -16,6 +16,10 @@
     object-fit: contain;
 }
 
+.startBtn:hover{
+    color: white;
+}
+
 
 /* --------------------------------------------------features------------------------------------------------------------------------ */
 
@@ -43,11 +47,7 @@
         width: 100%;
     }
 
-    .features{
-        margin-top: 250px !important;
-    }
     .featuresList ul{
-        list-style: none;
         padding-left: 0;
     }
 }
