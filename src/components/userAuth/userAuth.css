@@ -1,0 +1,9 @@
+.loginForm{
+    margin: 100px 0;
+    width: 33%;
+    border: 1px solid gray;
+}
+
+.loginToggle{
+    cursor: pointer;
+}

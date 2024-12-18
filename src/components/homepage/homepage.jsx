@@ -13,7 +13,7 @@ function Homepage() {
           <div className="welcome">
             <p className="welcomeDialogue dark-text pe-5">Welcome to Our Agricultural Schemes Portal</p>
           </div>
-          <div className="details">
+          <div className="details text-color fs-5">
             <p>
             Empowering farmers, enhancing productivity, and fostering sustainability—our platform connects you to the most impactful agricultural schemes. Explore resources that simplify farming, improve yields, and secure your livelihood.
             </p>
@@ -26,15 +26,41 @@ function Homepage() {
           <img src={images.vector1} alt="" className='img-fluid' />
         </div>
       </div>
+      <div className="features d-flex flex-column-reverse flex-md-row gap-5 gap-md-3 my-5 container" id="features">
+        <div className="featureBox1 col-md-6 p-4">
+          <div className="featuretitle text-md-center text-start px-4">
+            <p className='dark-text'>Notice</p>
+          </div>
+          <div className="featuresList d-flex justify-content-center align-items-center text-color fs-5">
+            <ul>
+              <li className="mb-3">
+              Seasonal Offerings: As the new planting season approaches, we are offering special discounts on select seeds, fertilizers, and farming equipment. Be sure to check our website regularly for the latest deals and promotions.
+              </li>
+              <li className="mb-3">
+              Shipping Updates: Due to seasonal demand, please note that delivery times may be slightly longer than usual. We encourage you to place orders early to ensure timely delivery for your farming needs.
+              </li>
+              <li className="mb-3">
+              New Features on the Website: We are excited to announce that we have launched new tools and resources on our website to assist you in better managing your crops and equipment.
+              </li>
+              <li className="mb-3">
+              Sustainability Initiatives: Our commitment to sustainability continues to grow. We have partnered with local farms to promote eco-friendly practices and soil health programs.
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="featureBox2 col-md-6 p-4">
+          <img src={images.vector5} alt="" className="img-fluid d-block m-auto"/>
+        </div>
+      </div>
       <div className="choose d-flex flex-column flex-md-row gap-md-5 gap-3 my-5 container">
         <div className="chooseBox2 col-md-7">
           <img src={images.vector2} alt="" className="img-fluid"/>
         </div>
         <div className="chooseBox1 col-md-5">
           <div className="featuretitle text-center mb-5">
-            <p>Why Choose Us ?</p>
+            <p className='dark-text'>Why Choose Us ?</p>
           </div>
-          <div className="featuresList">
+          <div className="featuresList fs-5 text-color">
             <ul className="pe-4">
               <li className="mb-3">
               Simplified Information: Access concise and up-to-date details on government and private schemes.
@@ -52,9 +78,9 @@ function Homepage() {
       <div className="features d-flex flex-column-reverse flex-md-row gap-5 gap-md-3 my-5 container" id="features">
         <div className="featureBox1 col-md-5 p-4">
           <div className="featuretitle text-md-center text-start p-4">
-            <p>Features</p>
+            <p className='dark-text'>Features</p>
           </div>
-          <div className="featuresList d-flex justify-content-center align-items-center ">
+          <div className="featuresList d-flex justify-content-center align-items-center text-color">
             <ul>
               <li className="mb-3">
               Direct benefit transfer
@@ -84,9 +110,9 @@ function Homepage() {
         </div>
         <div className="workBox1 col-md-4 d-flex justify-content-center align-content-center flex-column">
           <div className="featuretitle text-center mb-3">
-            <p>How to Apply</p>
+            <p className='dark-text'>How to Apply</p>
           </div>
-          <div className="workList">
+          <div className="workList text-color">
             <ol>
               <li className="d-flex align-items-start  mb-3">
               1. Step-by-Step Guide: A simple, easy-to-follow guide that outlines the application process.
@@ -104,20 +130,34 @@ function Homepage() {
         
       </div>
       
-        <div className="works d-flex flex-column flex-md-row gap-5 my-5 container">
-        <div className="workBox1 d-flex justify-content-around align-items-center flex-column">
-          <div className="download fs-1 text-center">
-            <p className="p-3">Schemes</p>
+        <div className="works d-flex flex-column justify-content-center gap-5 my-5 container">
+        <div className="workBox1 d-flex justify-content-center align-items-center flex-column">
+          <div className="row">
+            <div className="col-md-2"></div>
+            <div className="col-md-8">
+            <div className="schemes text-center">
+            <p className="p-3 fs-1">Schemes</p>
+            <div className="d-flex flex-wrap gap-4">
+              <div className="rounded-5 avaliableSchemes px-5 py-2 button-bg fw-bold border border-1">Machine Loan</div>
+              <div className="rounded-5 avaliableSchemes px-5 py-2 button-bg fw-bold border border-1">Fertilizer</div>
+              <div className="rounded-5 avaliableSchemes px-5 py-2 button-bg fw-bold border border-1"> Land loan</div>
+              <div className="rounded-5 avaliableSchemes px-5 py-2 button-bg fw-bold border border-1"> Financial Aid</div>
+              <div className="rounded-5 avaliableSchemes px-5 py-2 button-bg fw-bold border border-1"> Crop Insurance</div>
+              <div className="rounded-5 avaliableSchemes px-5 py-2 button-bg fw-bold border border-1"> Technology</div>
+              <div className="rounded-5 avaliableSchemes px-5 py-2 button-bg fw-bold border border-1"> Soil Health </div>
+              <div className="rounded-5 avaliableSchemes px-5 py-2 button-bg fw-bold border border-1"> Pesticide</div>
+              <div className="rounded-5 avaliableSchemes px-5 py-2 button-bg fw-bold border border-1"> Kisan Credit Card</div>
+            </div>
           </div>
-          <div className="workList text-center">
+            </div>
+            <div className="col-md-2"></div>
+          </div>
+          
+        </div>
+        <div className="workList text-center">
             <a href="" className="nav-link px-5 py-2 bg-success d-inline-block text-white rounded-3 fw-bold fs-5">Apply Now</a>
           </div>
-        </div>
-        <div className="workBox2">
-          <div className="videoBox bg-dark mx-5 h-100 rounded-5">
-            <img src={images.play} alt="" className="img-fluid h-100"/>
-          </div>
-        </div>
+      
         
       </div>
       <Footer/>

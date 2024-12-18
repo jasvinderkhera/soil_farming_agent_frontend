@@ -34,6 +34,7 @@
 
 .mobileLogo{
     height: 35px;
+    z-index: 4;
 }
 
 .menuLogo{
@@ -41,12 +42,18 @@
     z-index: 4;
 }
 
-.mobileMenuItems{
- position: fixed;   
- top: 0;
- bottom: 0;
- left: 0;
- right: 0;
- background-color: rgba(0, 0, 0, 0.618);
- z-index: 3;
+@media screen and (max-width:768px) {
+    .modal-open{
+        overflow: hidden;
+      }
+    
+    .mobileMenuItems{
+     position: fixed;   
+     top: 0;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     background-color: rgba(0, 0, 0, 0.618);
+     z-index: 3;
+    }
 }

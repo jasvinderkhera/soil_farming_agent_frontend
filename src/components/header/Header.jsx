@@ -8,7 +8,9 @@ function Header() {
     const toggleMenu = () =>{
         if(display === "hide"){
             setDisplay('show')
+            document.body.classList.add('modal-open')
         } else{
+            document.body.classList.remove('modal-open')
             setDisplay("hide")
         }
     }
@@ -19,7 +21,7 @@ function Header() {
     <div className='center-container header py-3 px-3 '>
         <div className="upperNav w-100 d-flex justify-content-between align-items-center">
         <div className="logo">
-            <Link to="/" className="nav-link"><img src="" alt="" className='img-fluid logoImage'/></Link>
+            <Link to="/" className="nav-link"><img src={null} alt="" className='img-fluid logoImage'/></Link>
         </div>
         <div className="menus d-flex gap-3">
             <div className="menuItem">

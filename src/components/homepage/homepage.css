@@ -36,6 +36,14 @@
 }
 
 
+/* ---------------------------------------Schemes------------------------------------------------ */
+
+.avaliableSchemes:hover{
+    cursor: pointer;
+    background-color: var(--dark-green);
+}
+
+
 @media screen and (max-width:768px) {
  
     .welcomeDialogue{

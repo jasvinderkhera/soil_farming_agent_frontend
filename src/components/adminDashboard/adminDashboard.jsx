@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import {ref, push, set } from "firebase/database";
 import {auth, realtimeDb} from "../../firebase/firebase";
+import { useNavigate } from "react-router-dom";
 
 const AdminDashboard = () => {
   const [schemeTitle, setSchemeTitle] = useState("");
   const [schemeDetails, setSchemeDetails] = useState("");
+  const navigate = useNavigate(); 
 
   const postScheme = (e) => {
     e.preventDefault();
@@ -27,7 +29,13 @@ const AdminDashboard = () => {
     });
 };
 
+const handleLogout = () => {
+  auth.signOut();
+  navigate('/')
+};
+
 return (
+  <div>
   <form onSubmit={postScheme}>
     <h2>Post a New Scheme</h2>
     <input
@@ -43,6 +51,13 @@ return (
     />
     <button type="submit">Post Scheme</button>
   </form>
+
+<div className="d-flex py-4 justify-content-center align-items-center">
+        <button onClick={handleLogout} className='btn btn-danger text-white '>Logout</button>
+        </div>
+</div>
+
+
 );
 };
 

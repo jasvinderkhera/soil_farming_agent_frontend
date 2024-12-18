@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import {ref, onValue, set } from "firebase/database";
 import {auth, realtimeDb} from "../../firebase/firebase";
+import { useNavigate } from "react-router-dom";
+
 
 const UserDashboard = () => {
   const [schemes, setSchemes] = useState([]);
+  const navigate = useNavigate(); 
 
   useEffect(() => {
     const schemesRef = ref(realtimeDb, "schemes");
@@ -39,6 +42,11 @@ const UserDashboard = () => {
 }
 };
 
+const handleLogout = () => {
+  auth.signOut();
+  navigate('/')
+};
+
 return (
 <div>
   <h2>Available Schemes</h2>
@@ -49,6 +57,10 @@ return (
       <button onClick={() => applyForScheme(scheme.id)}>Apply</button>
     </div>
   ))}
+
+<div className="d-flex py-4 justify-content-center align-items-center">
+        <button onClick={handleLogout} className='btn btn-danger text-white '>Logout</button>
+        </div>
 </div>
 );
 };

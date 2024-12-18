@@ -1,6 +1,9 @@
 :root{
   --basic-green: #9EF4B6;
   --dark-green: #0F8330;
+  --text-color: #062F12;
+  --button-bg: #09441A;
+
 }
 
 body {
@@ -29,8 +32,17 @@ code {
   color: var(--basic-green);
 }
 
+.text-color{
+  color: var(--text-color);
+}
+
 .light-bg{
   background-color: var(--basic-green);
+}
+
+.button-bg{
+  background-color: var(--button-bg);
+  color: white;
 }
 
 

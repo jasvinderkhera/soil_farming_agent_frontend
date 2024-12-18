@@ -25,18 +25,24 @@ function Footer() {
           <div className="footerBox21">
             <h4>Features</h4>
             <ul className="list-unstyled">
-              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Secure Document Uploads</a></li>
-              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Easy Sharing</a></li>
-              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Organized Storage</a></li>
-              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Access Anywhere</a></li>
+              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Direct benefit transfer</a></li>
+              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Simplified application process</a></li>
+              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Timely disbursement of funds</a></li>
+              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Transparent and accountable system</a></li>
             </ul>
           </div>
           <div className="footerBox22">
             <h4>Our Services</h4>
             <ul className="list-unstyled">
-              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Cloud Storage</a></li>
-              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Data Security</a></li>
-              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Personal Data Management</a></li>
+              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Machine loan</a></li>
+              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Fertilizer</a></li>
+              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Land loan</a></li>
+              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Financial Aid</a></li>
+              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Crop Insurance</a></li>
+              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Technology</a></li>
+              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Soil Health </a></li>
+              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Pesticide</a></li>
+              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Kisan Credit Card</a></li>
             </ul>
           </div>
           <div className="footerBox23">
@@ -48,7 +54,8 @@ function Footer() {
           </div>
         </div>
       </div>
-      <p className='text-center fw-semibold fs-5 mt-4'>© 2024 Cloud Linker. All rights reserved.
+      <p className='text-center fw-semibold fs-5 mt-4'>© 2024 KrishiSahayak. All rights reserved.
+
       </p>
       </div>
     </footer>
