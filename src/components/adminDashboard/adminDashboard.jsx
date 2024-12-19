@@ -1,12 +1,35 @@
-import React, { useState } from "react";
-import {ref, push, set } from "firebase/database";
-import {auth, realtimeDb} from "../../firebase/firebase";
+import React, { useState, useEffect } from "react";
+import './adminDashboard.css'
+import { ref, push, set, onValue, update } from "firebase/database";
+import { auth, realtimeDb } from "../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
 
 const AdminDashboard = () => {
   const [schemeTitle, setSchemeTitle] = useState("");
   const [schemeDetails, setSchemeDetails] = useState("");
-  const navigate = useNavigate(); 
+  const [summary, setSummary] = useState("");
+  const [schemes, setSchemes] = useState([]);
+  const [selectedScheme, setSelectedScheme] = useState(null);
+  const [toggleTab, setToggleTab] = useState("post");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const schemesRef = ref(realtimeDb, "schemes");
+    const unsubscribe = onValue(schemesRef, (snapshot) => {
+      const data = snapshot.val();
+      const schemeList = data
+        ? Object.keys(data).map((key) => ({
+            id: key,
+            ...data[key],
+          }))
+        : [];
+      setSchemes(schemeList);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const postScheme = (e) => {
     e.preventDefault();
@@ -15,50 +38,225 @@ const AdminDashboard = () => {
 
     set(newSchemeRef, {
       title: schemeTitle,
+      summary: summary,
       details: schemeDetails,
       status: "Pending",
     })
       .then(() => {
         alert("Scheme posted successfully");
         setSchemeTitle("");
+        setSummary("");
         setSchemeDetails("");
       })
       .catch((error) => {
         console.error("Error posting scheme:", error);
         alert("Failed to post scheme. Try again.");
-    });
-};
+      });
+  };
 
-const handleLogout = () => {
-  auth.signOut();
-  navigate('/')
-};
+  const handleApprove = (schemeId, userId) => {
+    const updates = {};
+    updates[`schemes/${schemeId}/applicants/${userId}/status`] = "Approved";
+    updates[`users/${userId}/appliedSchemes/${schemeId}/status`] = "Approved";
 
-return (
-  <div>
-  <form onSubmit={postScheme}>
-    <h2>Post a New Scheme</h2>
-    <input
-      type="text"
-      placeholder="Scheme Title"
-      value={schemeTitle}
-      onChange={(e) => setSchemeTitle(e.target.value)}
-    />
-    <textarea
-      placeholder="Scheme Details"
-      value={schemeDetails}
-      onChange={(e) => setSchemeDetails(e.target.value)}
-    />
-    <button type="submit">Post Scheme</button>
-  </form>
+    update(ref(realtimeDb), updates)
+      .then(() => {
+        alert("Application approved!");
+      })
+      .catch((error) => {
+        console.error("Error approving application:", error);
+        alert("Failed to approve application.");
+      });
+  };
 
-<div className="d-flex py-4 justify-content-center align-items-center">
-        <button onClick={handleLogout} className='btn btn-danger text-white '>Logout</button>
+  const handleReject = (schemeId, userId) => {
+    const updates = {};
+    updates[`schemes/${schemeId}/applicants/${userId}/status`] = "Rejected";
+    updates[`users/${userId}/appliedSchemes/${schemeId}/status`] = "Rejected";
+
+    update(ref(realtimeDb), updates)
+      .then(() => {
+        alert("Application rejected!");
+      })
+      .catch((error) => {
+        console.error("Error rejecting application:", error);
+        alert("Failed to reject application.");
+      });
+  };
+
+  const handleLogout = () => {
+    auth.signOut();
+    navigate("/");
+  };
+
+  // Log toggleTab value to check if it changes
+  console.log('Current toggleTab:', toggleTab);
+
+  return (
+    <div>
+      <Header />
+      <div className="topContainer container">
+        <div className="d-flex py-4 justify-content-end gap-4 align-items-center">
+          <button
+            type="button"
+            className="postScheme btn btn-primary"
+            onClick={() => setToggleTab("post")}
+          >
+            Post Scheme
+          </button>
+          <button
+            type="button"
+            className="viewApplications btn btn-warning"
+            onClick={() => setToggleTab("view")}
+          >
+            View Applications
+          </button>
+
+          <button onClick={handleLogout} className="btn btn-danger text-white">
+            Logout
+          </button>
         </div>
-</div>
 
+        <div className="row">
+          {/* Schemes List */}
+          <div className="schemesList col-md-4 py-3 px-3 border border-black border-1">
+            <h2>Available Schemes</h2>
+            {schemes.map((scheme) => (
+              <div
+                key={scheme.id}
+                className="my-3 p-2 border border-black border-1"
+              >
+                <h4>{scheme.title}</h4>
+                <p>{scheme.summary}</p>
+                <button
+                  onClick={() => {setSelectedScheme(scheme); setToggleTab("view")}}
+                  className="btn btn-primary"
+                >
+                  View Applicants
+                </button>
+              </div>
+            ))}
+          </div>
 
-);
+          {/* Applicants or Post Scheme Section */}
+          <div className="col-md-8 py-3 px-3">
+            {toggleTab === "view" ? (
+              // View Applications Section
+              selectedScheme ? (
+                <>
+                  <h2 className="text-center">
+                    Applicants for {selectedScheme.title}
+                  </h2>
+                  {selectedScheme.applicants ? (
+                    Object.keys(selectedScheme.applicants).map((userId) => {
+                      const applicant = selectedScheme.applicants[userId];
+                      return (
+                        <div
+                          key={userId}
+                          className="my-3 p-4 border border-black border-1"
+                        >
+                          <p>
+                            <strong>User ID:</strong> {userId}
+                          </p>
+                          <p>
+                            <strong>Name:</strong> {applicant.name || "N/A"}
+                          </p>
+                          <p>
+                            <strong>Email:</strong> {applicant.email || "N/A"}
+                          </p>
+                          <p>
+                            <strong>Phone:</strong> {applicant.phone || "N/A"}
+                          </p>
+                          <p>
+                            <strong>Aadhar Number:</strong>{" "}
+                            {applicant.aadharNumber || "N/A"}
+                          </p>
+                          <p>
+                            <strong>Annual Income:</strong>{" "}
+                            {applicant.annualIncome || "N/A"}
+                          </p>
+                          <p>
+                            <strong>Applied At:</strong>{" "}
+                            {new Date(applicant.appliedAt).toLocaleString()}
+                          </p>
+                          <p>
+                            <strong>Status:</strong> {applicant.status}
+                          </p>
+                          <div>
+                            <button
+                              onClick={() =>
+                                handleApprove(selectedScheme.id, userId)
+                              }
+                              className="btn btn-success mx-2"
+                            >
+                              Approve
+                            </button>
+                            <button
+                              onClick={() =>
+                                handleReject(selectedScheme.id, userId)
+                              }
+                              className="btn btn-danger mx-2"
+                            >
+                              Reject
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <p className="text-muted">
+                      No applicants for this scheme yet.
+                    </p>
+                  )}
+                </>
+              ) : (
+                <p className="text-center text-muted">
+                  Select a scheme to view applicants.
+                </p>
+              )
+            ) : (
+              // Post Scheme Section
+              <form onSubmit={postScheme}>
+                <h2 className="mb-3">Post a New Scheme</h2>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    placeholder="Scheme Title"
+                    value={schemeTitle}
+                    onChange={(e) => setSchemeTitle(e.target.value)}
+                    className="form-control"
+                  />
+                </div>
+                <div className="mb-3">
+                  <input
+                    type="text"
+                    placeholder="Scheme Summary"
+                    value={summary}
+                    onChange={(e) => setSummary(e.target.value)}
+                    className="form-control"
+                  />
+                </div>
+                <div className="mb-3">
+                  <textarea
+                    placeholder="Scheme Details"
+                    value={schemeDetails}
+                    onChange={(e) => setSchemeDetails(e.target.value)}
+                    className="form-control schemeDetail"
+                  />
+                </div>
+                <div className="text-center">
+                  <button type="submit" className="btn btn-success">
+                    Post Scheme
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
 };
 
 export default AdminDashboard;

@@ -2,8 +2,12 @@ import React, { useState } from 'react'
 import './Header.css'
 import { images } from '../../constants/imagePath'
 import { Link } from 'react-router-dom'
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useSelector } from "react-redux";
+import { auth } from "../../firebase/firebase";
 
 function Header() {
+    const [user] = useAuthState(auth);
     const [display,setDisplay] = useState('hide')
     const toggleMenu = () =>{
         if(display === "hide"){
@@ -38,7 +42,7 @@ function Header() {
         <div className="container d-flex justify-content-center gap-5 p-2 align-items-center lowerNav light-bg">
             
                 <a href="" className='nav-link'>Notice</a>
-                <Link to='login' className='nav-link'>Login/Register</Link>
+                <Link to='login' className='nav-link'>{!user ? "Login/Register" : "Dashboard"}</Link>
                 <a href="" className='nav-link'>Schemes</a>
                 <a href="" className='nav-link'>Crops</a>
                 <a href="" className='nav-link'>Act & Rules</a>

@@ -13,10 +13,10 @@ function Footer() {
           <div className="contactUs mt-5 w-100 text-center">
             <h4>Contact Us</h4>
             <div className="socialMedia mt-3 d-flex justify-content-center gap-4">
-             <a href="https://www.facebook.com/people/Jass-Khera/pfbid0DepavuoNR5xuQXfJpcCr4FP55X6vxwjGWhboaPQHEHJW3uaQNmoHFAJZvtcdLcXql/" className="nav-link"> <img src={images.fb} alt="" className='img-fluid' /></a>
-              <a href="https://www.instagram.com/jasskhera_1/" className="nav-link"><img src={images.insta} alt="" className='img-fluid' /></a>
-              <a href="https://github.com/jasvinderkhera" className="nav-link"><img src={images.github} alt="" className='img-fluid' /></a>
-              <a href="https://www.linkedin.com/in/jasskhera/" className="nav-link"><img src={images.linkedin} alt="" className='img-fluid' /></a>
+             <a href="https://www.facebook.com/people/Jass-Khera/pfbid0DepavuoNR5xuQXfJpcCr4FP55X6vxwjGWhboaPQHEHJW3uaQNmoHFAJZvtcdLcXql/" className="nav-link" target='_blank'> <img src={images.fb} alt="" className='img-fluid' /></a>
+              <a href="https://www.instagram.com/jasskhera_1/" className="nav-link" target='_blank'><img src={images.insta} alt="" className='img-fluid' /></a>
+              <a href="https://github.com/jasvinderkhera" className="nav-link" target='_blank'><img src={images.github} alt="" className='img-fluid' /></a>
+              <a href="https://www.linkedin.com/in/jasskhera/" className="nav-link" target='_blank'><img src={images.linkedin} alt="" className='img-fluid' /></a>
             </div>
           </div>
         </div>
@@ -39,10 +39,8 @@ function Footer() {
               <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Land loan</a></li>
               <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Financial Aid</a></li>
               <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Crop Insurance</a></li>
-              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Technology</a></li>
               <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Soil Health </a></li>
               <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Pesticide</a></li>
-              <li><a href="" onClick={(e) => { e.preventDefault()}} className='nav-link mb-2'>Kisan Credit Card</a></li>
             </ul>
           </div>
           <div className="footerBox23">
