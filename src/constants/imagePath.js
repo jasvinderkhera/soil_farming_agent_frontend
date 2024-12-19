@@ -8,6 +8,7 @@ import insta from '../assets/images/insta.png'
 import linkedin from '../assets/images/linkedin.png'
 import github from '../assets/images/github.png'
 import mobileMenu from "../assets/images/menu.png"
+import document from "../assets/images/document.png"
 
 export const images = {
 vector1:vector1,
@@ -20,4 +21,5 @@ fb:fb,
 insta:insta,
 linkedin:linkedin,
 github:github,
+document:document,
 }

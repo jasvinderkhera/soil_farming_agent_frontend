@@ -217,7 +217,7 @@ const AdminDashboard = () => {
             ) : (
               // Post Scheme Section
               <form onSubmit={postScheme}>
-                <h2 className="mb-3">Post a New Scheme</h2>
+                <h2 className="mb-4 text-center">Post a New Scheme</h2>
                 <div className="mb-3">
                   <input
                     type="text"
@@ -245,7 +245,7 @@ const AdminDashboard = () => {
                   />
                 </div>
                 <div className="text-center">
-                  <button type="submit" className="btn btn-success">
+                  <button type="submit" className="btn btn-success w-100 py-2 fw-bold">
                     Post Scheme
                   </button>
                 </div>

@@ -11,6 +11,8 @@ import { auth, realtimeDb } from "../../firebase/firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useDispatch } from "react-redux";
 import { add } from "../../context/roleSlice";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
 
 
 const UserAuth = () => {
@@ -85,7 +87,9 @@ const UserAuth = () => {
 
   return (
     <div>
-      <div className="container h-100 d-flex justify-content-center align-items-center my-5">
+      <Header/>
+      <div className="topContainer container h-100 d-flex flex-column justify-content-center align-items-center">
+        <h2 className="text-center dark-text my-4"> Welcome to KrishiSahayak</h2>
       <form onSubmit={handleAuth} className="loginForm p-4">
       <h2 className="text-center mb-3">{isRegistering ? "Register" : "Login"}</h2>
       <div className="mb-3">
@@ -106,14 +110,15 @@ const UserAuth = () => {
         className="form-control"
       />
      </div>
-      <p className="text-center"><button type="submit" className="btn btn-primary mb-3">{isRegistering ? "Register" : "Login"}</button></p>
+      <p className="text-center"><button type="submit" className="btn btn-success mb-3 w-100">{isRegistering ? "Register" : "Login"}</button></p>
       <p onClick={() => setIsRegistering(!isRegistering)} className="loginToggle text-center">
         {isRegistering
-          ? "Already have an account? Login"
-          : "Don't have an account? Register"}
+          ? <p>Already have an account? <span className="text-primary">Login</span></p>
+          : <p>Don't have an account? <span className="text-primary">Register</span></p>}
       </p>
     </form>
       </div>
+      <Footer/>
     </div>
   );
 };

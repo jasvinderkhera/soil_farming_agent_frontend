@@ -66,6 +66,7 @@ import UserDashboard from "./components/userDashboard/userDashboard";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useSelector } from "react-redux";
 import { auth } from "./firebase/firebase";
+import ActRules from "./components/actRules/actRules";
 
 function App() {
   const [user] = useAuthState(auth);
@@ -79,6 +80,7 @@ function App() {
           path="/"
           element={!user ? <Homepage /> : <Navigate to={role === "admin" ? "/admin-dashboard" : "/user-dashboard"} />}
         />
+        <Route path="/act-rules" element={<ActRules/>} />
 
         {/* Auth Route - Inaccessible after login */}
         <Route

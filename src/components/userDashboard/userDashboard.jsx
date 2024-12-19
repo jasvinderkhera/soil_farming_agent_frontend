@@ -102,12 +102,14 @@ const UserDashboard = () => {
                 <div key={scheme.id} className="my-3 p-2 border border-black border-1">
                   <h4>{scheme.title}</h4>
                   <p>{scheme.summary}</p>
+                  <p className="text-center">
                   <button
                     onClick={() => handleSchemeSelect(scheme)}
-                    className="btn btn-primary"
+                    className="btn btn-primary w-50 text-center"
                   >
                     View Details
                   </button>
+                  </p>
                 </div>
               ))
             ) : (
@@ -125,8 +127,8 @@ const UserDashboard = () => {
                 <p><strong>Summary:</strong> {selectedScheme.summary}</p>
                 <p><strong>Details:</strong> {selectedScheme.details}</p>
                 </div>
-                <form onSubmit={handleSubmitDetails}>
-                  <h4>Fill Your Details</h4>
+                <form onSubmit={handleSubmitDetails} className="p-4">
+                  <h4 className="text-center">Fill Your Details</h4>
                   <div className="mb-3">
                     <input
                       type="text"
@@ -186,7 +188,7 @@ const UserDashboard = () => {
                       maxLength={16}
                     />
                   </div>
-                  <button type="submit" className="btn btn-success">
+                  <button type="submit" className="btn btn-success w-100 py-2 fw-bold">
                     Submit Application
                   </button>
                 </form>

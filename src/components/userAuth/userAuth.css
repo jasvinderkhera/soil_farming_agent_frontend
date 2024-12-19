@@ -1,9 +1,16 @@
 .loginForm{
-    margin: 100px 0;
     width: 33%;
     border: 1px solid gray;
 }
 
 .loginToggle{
     cursor: pointer;
+}
+
+@media screen and (max-width:768px) {
+    .loginForm{
+        width: 100%;
+        border: 1px solid gray;
+    }
+    
 }
