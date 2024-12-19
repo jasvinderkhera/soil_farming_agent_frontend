@@ -22,7 +22,8 @@
 }
 
 .logoImage{
-    height: 60px;
+    height: 60px !important;
+    width: 200px;
 }
 
 .homepage_mobileMenu{
@@ -33,11 +34,12 @@
 }
 
 .mobileLogo{
-    height: 35px;
+    height: 65px !important;
     z-index: 4;
 }
 
 .menuLogo{
+    height: 30px !important;
     width: 35px;
     z-index: 4;
 }

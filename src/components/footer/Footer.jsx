@@ -8,7 +8,7 @@ function Footer() {
       <div className="container px-4 pt-5 pb-4">
       <div className="row">
       <div className="col-md-4 footerBox1 d-flex justify-content-center align-items-center flex-column">
-          <img src="" alt="" className='footerLogo img-fluid'/>
+          <img src={images.vectorLogo} alt="" className='footerLogo img-fluid'/>
 
           <div className="contactUs mt-5 w-100 text-center">
             <h4>Contact Us</h4>

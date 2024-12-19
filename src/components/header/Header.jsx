@@ -22,11 +22,11 @@ function Header() {
   return (
     <div>
       <div className="header-outer-container d-none d-md-block">
-        <div className="center-container header py-3 px-3 ">
+        <div className="center-container container header py-3 px-3 ">
           <div className="upperNav w-100 d-flex justify-content-between align-items-center">
             <div className="logo">
               <Link to="/" className="nav-link">
-                <img src={null} alt="" className="img-fluid logoImage" />
+                <img src={images.vectorLogo} alt="" className=" logoImage" />
               </Link>
             </div>
             <div className="menus d-flex gap-3">
@@ -72,8 +72,8 @@ function Header() {
           </div>
         </div>
       </div>
-      <div className="homepage_mobileMenu d-flex justify-content-between d-md-none">
-        <img src="" alt="" className="img-fluid mobileLogo" />
+      <div className="homepage_mobileMenu align-items-center d-flex justify-content-between d-md-none">
+        <img src={images.vectorLogo} alt="" className="img-fluid mobileLogo" />
         <img
           src={images.mobileMenu}
           alt=""
