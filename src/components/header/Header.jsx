@@ -62,9 +62,9 @@ function Header() {
             <a href="https://agriwelfare.gov.in/" target="_blank" className="nav-link">
               Related Links
             </a>
-            <a href="" className="nav-link">
+            <Link to="about" className="nav-link">
               About
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -13,6 +13,7 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import Contact from "./components/contact/Contact";
 import Crops from "./components/crops/crops";
+import About from "./components/about/About";
 
 function App() {
   const [user] = useAuthState(auth);
@@ -30,6 +31,7 @@ function App() {
         <Route path="/act-rules" element={<ActRules/>} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/crop" element={<Crops/>} />
+        <Route path="/about" element={<About/>} />
 
         {/* Auth Route - Inaccessible after login */}
         <Route
