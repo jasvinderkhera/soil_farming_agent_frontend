@@ -1,13 +1,10 @@
 import React from 'react'
 import './actRules.css'
-import Header from '../header/Header'
-import Footer from '../footer/Footer'
 import { images } from '../../constants/imagePath'
 
 function ActRules() {
   return (
     <div>
-        <Header/>
         <div className="topContainer container">
         <h3 className="text-color py-4">ACT & RULES</h3>
 
@@ -53,7 +50,6 @@ function ActRules() {
             </div>
         </div>
         </div>
-        <Footer/>
     </div>
   )
 }

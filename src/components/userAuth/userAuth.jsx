@@ -87,7 +87,6 @@ const UserAuth = () => {
 
   return (
     <div>
-      <Header/>
       <div className="topContainer container h-100 d-flex flex-column justify-content-center align-items-center">
         <h2 className="text-center dark-text my-4"> Welcome to KrishiSahayak</h2>
       <form onSubmit={handleAuth} className="loginForm p-4">
@@ -118,7 +117,6 @@ const UserAuth = () => {
       </p>
     </form>
       </div>
-      <Footer/>
     </div>
   );
 };

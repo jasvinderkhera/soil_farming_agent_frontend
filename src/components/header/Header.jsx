@@ -30,11 +30,7 @@ function Header() {
               </Link>
             </div>
             <div className="menus d-flex gap-3">
-              <div className="menuItem">
-                <a href="" className="p-3 nav-link">
-                  Kishan UI/UX
-                </a>
-              </div>
+              
               <div className="menuItem">
                 <Link to="/contact" className="p-3 nav-link">
                   Contact Us

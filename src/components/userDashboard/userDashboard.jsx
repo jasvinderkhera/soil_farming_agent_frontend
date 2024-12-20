@@ -3,8 +3,6 @@ import "./userDashboard.css"
 import { ref, update, onValue } from "firebase/database";
 import { auth, realtimeDb } from "../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
 
 const UserDashboard = () => {
   const [schemes, setSchemes] = useState([]);
@@ -86,7 +84,6 @@ const UserDashboard = () => {
 
   return (
     <div>
-      <Header />
       <div className="topContainer container">
         <div className="d-flex py-4 justify-content-end align-items-center">
           <button onClick={handleLogout} className="btn btn-danger text-white">
@@ -199,7 +196,6 @@ const UserDashboard = () => {
           </div>
         </div>
       </div>
-      <Footer/>
     </div>
   );
 };

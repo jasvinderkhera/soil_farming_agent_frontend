@@ -94,7 +94,6 @@ const AdminDashboard = () => {
 
   return (
     <div>
-      <Header />
       <div className="topContainer container">
         <div className="d-flex py-4 justify-content-end gap-4 align-items-center">
           <button
@@ -254,7 +253,6 @@ const AdminDashboard = () => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

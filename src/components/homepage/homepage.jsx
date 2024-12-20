@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom'
 function Homepage() {
   return (
     <div className="homepage">
-      <Header/>
       <div>
       <div className="topContainer container d-flex flex-column flex-md-row gap-5">
         <div className="leftCircle col-md-5 d-flex flex-column justify-content-center align-items-center">
@@ -175,7 +174,6 @@ function Homepage() {
         
       </div>
       </div>
-      <Footer/>
     </div>
   )
 }

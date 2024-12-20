@@ -67,6 +67,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useSelector } from "react-redux";
 import { auth } from "./firebase/firebase";
 import ActRules from "./components/actRules/actRules";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const [user] = useAuthState(auth);
@@ -74,6 +76,7 @@ function App() {
 
   return (
     <BrowserRouter>
+    <Header/>
       <Routes>
         {/* Public Route */}
         <Route
@@ -103,6 +106,7 @@ function App() {
         {/* Catch-All Route */}
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }
