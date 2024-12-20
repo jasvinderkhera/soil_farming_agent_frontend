@@ -53,13 +53,13 @@ function Header() {
             <Link to="login" className="nav-link">
               Schemes
             </Link>
-            <a href="" className="nav-link">
+            <Link to="crop" className="nav-link">
               Crops
-            </a>
+            </Link>
             <Link to="act-rules" className="nav-link">
               Act & Rules
             </Link>
-            <a href="" className="nav-link">
+            <a href="https://agriwelfare.gov.in/" target="_blank" className="nav-link">
               Related Links
             </a>
             <a href="" className="nav-link">

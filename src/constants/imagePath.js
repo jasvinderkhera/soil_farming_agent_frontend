@@ -10,6 +10,8 @@ import github from '../assets/images/github.png'
 import mobileMenu from "../assets/images/menu.png"
 import document from "../assets/images/document.png"
 import vectorLogo from "../assets/images/vectorNew.svg"
+import dp from '../assets/images/dp.jpg'
+import user from '../assets/images/user.png'
 
 export const images = {
 vector1:vector1,
@@ -24,4 +26,6 @@ linkedin:linkedin,
 github:github,
 document:document,
 vectorLogo: vectorLogo,
+dp:dp,
+user:user,
 }
