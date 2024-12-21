@@ -37,16 +37,16 @@ function Header() {
                 </Link>
               </div>
               <div className="menuItem">
-                <a href="#features" className="p-3 nav-link">
+                <Link to="features" className="p-3 nav-link">
                   Features
-                </a>
+                </Link>
               </div>
             </div>
           </div>
           <div className="container d-flex justify-content-center gap-5 p-2 align-items-center lowerNav light-bg">
-            <a href="" className="nav-link">
+            <Link to="notice" className="nav-link">
               Notice
-            </a>
+            </Link>
             <Link to="login" className="nav-link">
               {!user ? "Login/Register" : "Dashboard"}
             </Link>
@@ -81,27 +81,27 @@ function Header() {
         className="mobileMenuItems"
         style={display === "show" ? { display: "block" } : { display: "none" }}
       >
-        <div className="menuItems mt-5">
+        <div className="menuItems mt-5 pt-5">
 
-        <a href="" className="nav-link p-3 text-white fs-5 fw-bold">
+        <Link to="notice" className="nav-link p-3 text-white fs-5 fw-bold" onClick={toggleMenu}>
             Notice
-          </a>
-          <Link to="login" className="nav-link p-3 text-white fs-5 fw-bold">
+          </Link>
+          <Link to="login" className="nav-link p-3 text-white fs-5 fw-bold" onClick={toggleMenu}>
             {!user ? "Login/Register" : "Dashboard"}
           </Link>
-          <Link to="login" className="nav-link p-3 text-white fs-5 fw-bold">
+          <Link to="login" className="nav-link p-3 text-white fs-5 fw-bold" onClick={toggleMenu}>
             Schemes
           </Link>
-          <a href="" className="nav-link p-3 text-white fs-5 fw-bold">
+          <a href="" className="nav-link p-3 text-white fs-5 fw-bold" onClick={toggleMenu}>
             Crops
           </a>
-          <Link to="act-rules" className="nav-link p-3 text-white fs-5 fw-bold">
+          <Link to="act-rules" className="nav-link p-3 text-white fs-5 fw-bold" onClick={toggleMenu}>
             Act & Rules
           </Link>
-          <Link to="/contact" className="nav-link p-3 text-white fs-5 fw-bold">
+          <Link to="/contact" className="nav-link p-3 text-white fs-5 fw-bold" onClick={toggleMenu}>
             Contact Us
           </Link>
-          <Link to="#features" className="nav-link p-3 text-white fs-5 fw-bold">
+          <Link to="features" className="nav-link p-3 text-white fs-5 fw-bold" onClick={toggleMenu}>
             Features
           </Link>
          

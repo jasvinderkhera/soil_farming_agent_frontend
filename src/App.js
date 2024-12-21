@@ -14,6 +14,8 @@ import Footer from "./components/footer/Footer";
 import Contact from "./components/contact/Contact";
 import Crops from "./components/crops/crops";
 import About from "./components/about/About";
+import Notice from "./components/notice/notice";
+import Features from "./components/features/features";
 
 function App() {
   const [user] = useAuthState(auth);
@@ -28,10 +30,12 @@ function App() {
           path="/"
           element={!user ? <Homepage /> : <Navigate to={role === "admin" ? "/admin-dashboard" : "/user-dashboard"} />}
         />
+        <Route path="/notice" element={<Notice/>} />
         <Route path="/act-rules" element={<ActRules/>} />
         <Route path="/contact" element={<Contact/>} />
         <Route path="/crop" element={<Crops/>} />
         <Route path="/about" element={<About/>} />
+        <Route path="/features" element={<Features/>} />
 
         {/* Auth Route - Inaccessible after login */}
         <Route

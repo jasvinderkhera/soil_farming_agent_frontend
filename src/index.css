@@ -45,4 +45,11 @@ code {
   color: white;
 }
 
+input:valid{
+  border: 1px solid #0F8330;
+}
+
+input:invalid{
+  border: 1px solid red;
+}
 
