@@ -16,6 +16,7 @@ import Crops from "./components/crops/crops";
 import About from "./components/about/About";
 import Notice from "./components/notice/notice";
 import Features from "./components/features/features";
+import { ToastContainer } from 'react-toastify'
 
 function App() {
   const [user] = useAuthState(auth);
@@ -23,7 +24,20 @@ function App() {
 
   return (
     <BrowserRouter>
+     <ToastContainer
+                position="top-right"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
     <Header/>
+   
       <Routes>
         {/* Public Route */}
         <Route

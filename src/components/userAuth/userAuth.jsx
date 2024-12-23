@@ -1,4 +1,4 @@
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import './userAuth.css'
 import {
@@ -9,11 +9,10 @@ import {
 } from "firebase/auth";
 import { ref, set, get } from "firebase/database";
 import { auth, realtimeDb } from "../../firebase/firebase"; 
-import { useAuthState } from "react-firebase-hooks/auth";
 import { useDispatch } from "react-redux";
 import { add } from "../../context/roleSlice";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 const UserAuth = () => {
@@ -21,16 +20,16 @@ const UserAuth = () => {
   const [password, setPassword] = useState("");
   const [isRegistering, setIsRegistering] = useState(false);
   const dispatch = useDispatch()
-  const navigate = useNavigate(); // React Router navigation
+  const navigate = useNavigate();
   const [resetEmail, setResetEmail] = useState("");
   const [loginPage, setLoginPage] = useState('login')
 
   const handleForgotPassword = async () => {
     try {
       await sendPasswordResetEmail(auth, resetEmail);
-      alert("Password reset email sent! Check your inbox.");
+      toast.success("Password reset email sent! Check your inbox.");
     } catch (error) {
-      alert(error.message);
+      toast.error(error.message);
     }
   };
   
@@ -43,18 +42,18 @@ const UserAuth = () => {
         .then((userCredential) => {
           const user = userCredential.user;
 
-          // Default role is "user" when registering
+          
           set(ref(realtimeDb, `users/${user.uid}`), {
             email: user.email,
-            role: "user", // Admin role will already be stored manually in the DB
+            role: "user",
           });
 
-          alert("Registration successful");
-          navigate("/"); // Go to home, App.js will redirect properly based on role
+         toast.success("Registration successful");
+          navigate("/");
         })
         .catch((error) => {
-          console.error("Error registering user:", error);
-          alert("Registration failed. Try again.");
+          toast.error("Error registering user:", error);
+          toast.error("Registration failed. Try again.");
         });
     } else {
       signInWithEmailAndPassword(auth, email, password)
@@ -62,26 +61,25 @@ const UserAuth = () => {
           const user =  userCredential.user
           const uid =  user.uid
           getUserData(uid)
-          alert("Login successful");
-          // navigate("/"); // Go to home, App.js will handle role-based navigation
+          toast.success("Login successful");
+          
         })
         .catch((error) => {
           console.error("Error logging in user:", error);
-          alert("Login failed. Check your credentials.");
+          toast.error("Login failed. Check your credentials.");
         });
     }
   };
 
   function getUserData(userId) {
-    const userRef = ref(realtimeDb, 'users/' + userId);  // Reference to the user data by userId
+    const userRef = ref(realtimeDb, 'users/' + userId);
   
-    // Get the data
+    
     get(userRef)
       .then((snapshot) => {
         if (snapshot.exists()) {
           const data = snapshot.val();
-          // console.log('User data:', data);
-          // console.log('User role:', data.role);
+          
           dispatch(add(data.role))
           if(data.role === "admin"){
             navigate('/admin-dashboard')

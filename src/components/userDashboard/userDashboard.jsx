@@ -3,6 +3,8 @@ import "./userDashboard.css"
 import { ref, update, onValue } from "firebase/database";
 import { auth, realtimeDb } from "../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const UserDashboard = () => {
   const [schemes, setSchemes] = useState([]);
@@ -44,7 +46,7 @@ const UserDashboard = () => {
 
     const user = auth.currentUser;
     if (!user || !selectedScheme) {
-      alert("You must be logged in and select a scheme to apply.");
+      toast.error("You must be logged in and select a scheme to apply.");
       return;
     }
 
@@ -68,12 +70,12 @@ const UserDashboard = () => {
 
     update(ref(realtimeDb), updates)
       .then(() => {
-        alert("Application submitted successfully! Your application is pending approval.");
+        toast.success("Application submitted successfully! Your application is pending approval.");
         setUserDetails({ name: "", email: "", phone: "", annualIncome: "", aadharNumber: "" });
       })
       .catch((error) => {
         console.error("Error submitting application:", error);
-        alert("Failed to submit application.");
+        toast.error("Failed to submit application.");
       });
   };
 

@@ -10,11 +10,14 @@
     "bootstrap": "^5.3.3",
     "firebase": "^11.1.0",
     "react": "^19.0.0",
+    "react-bootstrap": "^2.10.7",
     "react-dom": "^19.0.0",
     "react-firebase-hooks": "^5.1.1",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.0.2",
     "react-scripts": "5.0.1",
+    "react-toastify": "^11.0.2",
+    "toastify": "^2.0.1",
     "web-vitals": "^2.1.0"
   },
   "scripts": {

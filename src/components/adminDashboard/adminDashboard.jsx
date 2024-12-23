@@ -3,8 +3,8 @@ import './adminDashboard.css'
 import { ref, push, set, onValue, update } from "firebase/database";
 import { auth, realtimeDb } from "../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
-import Header from "../header/Header";
-import Footer from "../footer/Footer";
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const AdminDashboard = () => {
   const [schemeTitle, setSchemeTitle] = useState("");
@@ -43,14 +43,14 @@ const AdminDashboard = () => {
       status: "Pending",
     })
       .then(() => {
-        alert("Scheme posted successfully");
+        toast.success("Scheme posted successfully");
         setSchemeTitle("");
         setSummary("");
         setSchemeDetails("");
       })
       .catch((error) => {
         console.error("Error posting scheme:", error);
-        alert("Failed to post scheme. Try again.");
+        toast.error("Failed to post scheme. Try again.");
       });
   };
 
@@ -61,11 +61,11 @@ const AdminDashboard = () => {
 
     update(ref(realtimeDb), updates)
       .then(() => {
-        alert("Application approved!");
+        toast.success("Application approved!");
       })
       .catch((error) => {
         console.error("Error approving application:", error);
-        alert("Failed to approve application.");
+        toast.error("Failed to approve application.");
       });
   };
 
@@ -76,11 +76,11 @@ const AdminDashboard = () => {
 
     update(ref(realtimeDb), updates)
       .then(() => {
-        alert("Application rejected!");
+        toast.error("Application rejected!");
       })
       .catch((error) => {
         console.error("Error rejecting application:", error);
-        alert("Failed to reject application.");
+        toast.error("Failed to reject application.");
       });
   };
 
@@ -89,8 +89,6 @@ const AdminDashboard = () => {
     navigate("/");
   };
 
-  // Log toggleTab value to check if it changes
-  console.log('Current toggleTab:', toggleTab);
 
   return (
     <div>
